@@ -1,0 +1,20 @@
+{
+  "name": "gravix-website",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.5.18"
+  },
+  "devDependencies": {
+  "tailwindcss": "^3.x.x",
+  "postcss": "^8.x.x",
+  "autoprefixer": "^10.x.x",
+  "@tailwindcss/postcss": "^2.x.x"
+}
+}
