@@ -21,9 +21,11 @@
           class="icon-wrapper"
           :style="getIconPosition(index, icons.length)"
         >
-          <a :href="icon.link" target="_blank">
-            <img :src="icon.src" class="icon" />
-          </a>
+          <div class="icon-fix">
+            <a :href="icon.link" target="_blank">
+              <img :src="icon.src" class="icon" />
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -97,6 +99,24 @@ const getIconPosition = (index, total) => {
   z-index: 5;
 }
 
+@media (max-height: 900px) {
+  .layout-container {
+    transform: translate(-50%, -50%) scale(0.85);
+  }
+}
+
+@media (max-height: 800px) {
+  .layout-container {
+    transform: translate(-50%, -50%) scale(0.75);
+  }
+}
+
+@media (max-height: 700px) {
+  .layout-container {
+    transform: translate(-50%, -50%) scale(0.6);
+  }
+}
+
 .rotating-circles {
   position: absolute;
   width: 100%;
@@ -127,11 +147,24 @@ const getIconPosition = (index, total) => {
   width: 100%;
   height: 100%;
   z-index: 5;
+  animation: rotateCircle 20s linear infinite;
 }
 
 .icon-wrapper {
   width: 64px;
   height: 64px;
+  position: absolute;
+}
+
+.icon-fix {
+  animation: unrotate 20s linear infinite;
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes unrotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
 }
 
 .icon {
@@ -146,7 +179,7 @@ const getIconPosition = (index, total) => {
 
 @media (max-width: 768px) {
   .layout-container {
-    transform: translate(-50%, -50%) scale(0.6); /* slightly larger scale for mobile */
+    transform: translate(-50%, -50%) scale(0.6);
   }
 
   .icon-wrapper {
